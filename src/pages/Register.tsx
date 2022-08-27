@@ -9,6 +9,8 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 
 const Register = () => {
+    //stati pomennijo, da nam neka spremenljivka hrani neko vrednost
+    //setFirstName-ime funkcije s pomočjo katere nastavljamo vrednost spremenljivke
     const[first_name, setFirstName] = useState('');
     const[last_name, setLastName] = useState('');
     const[email, setEmail] = useState('');
@@ -18,6 +20,10 @@ const Register = () => {
 
     const[redirect, setRedirect] = useState(false);
 
+    //nova funkcija submit
+    //type-submit spodaj
+    //SyntheticEvent-umetni submit
+    //e.preventDefault-da naj se ne zgodi to kar bi se po defaultu zgodilo v html, če nekdo klikne na gumb submit
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
         const data = {
@@ -27,6 +33,8 @@ const Register = () => {
             password
         }
         console.log(data);
+        //prek spremenljivke res bom poslal podatke na moj strežnik, strežnik pa bo vrnil podatke
+        //data axiosu pove kaj naj pošlje, url pa kam naj pošllje
         const res = await axios.post('http://localhost:8080/auth/register',data);
         console.log(res);
 
@@ -47,6 +55,8 @@ const Register = () => {
         return <Navigate to='/login' />
     }
 
+    //onChange
+    //form onSubmit
     return (
         <>
             <h2>{errorText}</h2>
