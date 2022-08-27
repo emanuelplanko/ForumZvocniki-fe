@@ -16,8 +16,12 @@ const Register = () => {
     const[email, setEmail] = useState('');
     const[password, setPassword] = useState('');
 
+    //errorText za spodaj pri html
     const[errorText, setErrorText] = useState('');
 
+    //da npr. vedno redirekta na login
+    //spodaj pri prvem if stavku
+    //po defaultu ne redirecta
     const[redirect, setRedirect] = useState(false);
 
     //nova funkcija submit
@@ -32,18 +36,22 @@ const Register = () => {
             email,
             password
         }
+       //v console.log(data) se dajo najprej podatki
         console.log(data);
         //prek spremenljivke res bom poslal podatke na moj strežnik, strežnik pa bo vrnil podatke
         //data axiosu pove kaj naj pošlje, url pa kam naj pošllje
         const res = await axios.post('http://localhost:8080/auth/register',data);
+        //v console.log(res) se da rezultat responsa, kar mi bo strežnik nazaj vrnil
         console.log(res);
 
+        //201 pomeni, da je šlo vse skozi
         if (res.status == 201) {
             //uspešno kreiran user, preusmerim ga na login
             setRedirect(true);
         }
 
         //FIXME backend s try - catch v primeru errorja
+        //lahko bi namesto if dali tudi else
         if (res.status != 201) {
             setErrorText('Napaka v podatkih');
             console.log(errorText);
@@ -51,6 +59,7 @@ const Register = () => {
 
     }
 
+    //če je redirect true, se izvrši spodnja koda
     if (redirect) {
         return <Navigate to='/login' />
     }

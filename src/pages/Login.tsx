@@ -22,6 +22,7 @@ const Login = () => {
 
         console.log(data);
 
+        //passthorugh:tru-withCredentials:true
         const res = await axios.post('http://localhost:8080/auth/login',data,{withCredentials: true});
 
         console.log(res);
@@ -35,6 +36,7 @@ const Login = () => {
         }
     }
 
+    //'/'je homepage
     if (redirect) {
         return <Navigate to='/' />;
     }

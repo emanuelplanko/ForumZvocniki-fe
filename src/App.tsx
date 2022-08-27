@@ -10,6 +10,8 @@ import axios from "axios";
 import {UserDto} from "./classes/user.dto";
 import Me from "./pages/Me";
 
+//objekt je tipa User
+//začetna vrednost je new UserDto, ki pa ima neke vrednosti
 function App() {
   const [user,setUser] = useState<UserDto>(new UserDto(0,'','',''));
 
@@ -18,6 +20,7 @@ function App() {
       const res = await axios.get('http://localhost:8080/users/profile',
           {withCredentials: true});
 
+      //pri setUser se sedaj pošljejo vsi podatki, ne samo user id
       if (res.status == 200) {
         console.log(res.data);
         setUser(res.data);
@@ -28,11 +31,14 @@ function App() {
     }
   }
 
+  //se požene takoj ko se stran prvič zažene
+  //noter naredimo array funkcijo
   useEffect(() => {
     currentUser();
   },[]);
 
-
+  //spodaj čez(Me) se morajo poslati podatki o userju
+  //na komponento Me se pošljejo podatki o userju
   return (
       <Wrapper>
         <BrowserRouter>
