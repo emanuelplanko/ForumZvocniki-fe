@@ -54,7 +54,7 @@ const Register = () => {
         //lahko bi namesto if dali tudi else
         if (res.status != 201) {
             setErrorText('Napaka v podatkih');
-            console.log(errorText);
+            //console.log(errorText);
         }
 
     }
@@ -69,6 +69,7 @@ const Register = () => {
     return (
         <>
             <h2>{errorText}</h2>
+            <h1>Register</h1>
             <form onSubmit={submit} className="form-signin w-100 m-auto">
                 <div className="form-floating">
                     <input type="text" className="form-control" id="floatingFirstName"

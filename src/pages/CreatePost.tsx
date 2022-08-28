@@ -1,6 +1,7 @@
 import React, {SyntheticEvent, useEffect, useState} from "react";
 import {Navigate} from "react-router-dom";
 import axios from "axios";
+import './Common.css';
 
 //styTextarea je spremenljivka, nastavimo jo spodaj vključno z rows
 const styleTextarea = {
@@ -61,6 +62,7 @@ const CreatePost = () => {
     return (
         <>
             <h2>{error}</h2>
+            <h1>Create a post</h1>
             <form onSubmit={submit} className="form-signin w-100 m-auto">
                 <div className="form-floating">
                     <input type="text" className="form-control" id="floatingInput"

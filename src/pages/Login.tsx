@@ -3,6 +3,7 @@ import {Navigate} from "react-router-dom";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import axios from "axios";
+import './Common.css';
 
 const Login = () => {
 
@@ -33,6 +34,7 @@ const Login = () => {
 
         if (res.status !== 201) {
             setError('Napaka v podatkih');
+            console.log(error);
         }
     }
 
@@ -44,6 +46,7 @@ const Login = () => {
     return (
         <>
             <h2>{error}</h2>
+            <h1>Login</h1>
             <form onSubmit={submit} className="form-signin w-100 m-auto">
                 <div className="form-floating">
                     <input type="email" className="form-control" id="floatingInput"

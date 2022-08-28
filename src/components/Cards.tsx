@@ -7,7 +7,7 @@ const Cards = () => {
 
     //loadCards je funkcija, ki bo šla v bazo in ven potegnala vse karte in jih napolnala, mora pa biti asinhrona
     const loadCards = async () => {
-        const res = await axios.get('http://localhost:8080/post',{withCredentials: true});
+        const res = await axios.get('https://localhost:8080/post',{withCredentials: true});
         if (res.status === 200) {
             console.log(res.data);
             setCards(res.data);
