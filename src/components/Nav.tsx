@@ -1,5 +1,7 @@
 import React from "react";
-
+/*
+                                  <li><a href="/loudspeaker" className="text-white">Objavi zvočnik</a></li>
+                                  <li><a href="/active_posts" className="text-white">Preglej aktivne objave</a></li>*/
 const Nav = () => {
     return (
         <>
@@ -18,6 +20,7 @@ const Nav = () => {
                                     <li><a href="/register" className="text-white">Register</a></li>
                                     <li><a href="/me" className="text-white">Profile</a></li>
                                     <li><a href="/create" className="text-white">Ustvari post</a></li>
+                                    <li><a href="/loudspeaker_forum" className="text-white">Zvočniki forum</a></li>
                                 </ul>
                             </div>
                         </div>

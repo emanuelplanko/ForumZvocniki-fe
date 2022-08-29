@@ -9,6 +9,9 @@ import Wrapper from "./components/Wrapper";
 import axios from "axios";
 import {UserDto} from "./classes/user.dto";
 import Me from "./pages/Me";
+import LoudspeakerPost from "./pages/LoudspeakerPost";
+import SpeakerForum from "./pages/SpeakerForum";
+import LoudspeakerForum from "./pages/LoudspeakerForum";
 
 //objekt je tipa User
 //začetna vrednost je new UserDto, ki pa ima neke vrednosti
@@ -47,6 +50,9 @@ function App() {
             <Route path={'/login'} element={<Login />} />
             <Route path={'/register'} element={<Register />} />
             <Route path={'/create'} element={<CreatePost/>} />
+            <Route path={'/loudspeaker'} element={<LoudspeakerPost/>} />
+            <Route path={'/loudspeaker_forum'} element={<LoudspeakerForum/>} />
+            <Route path={'/loudspeaker_posts'} element={<SpeakerForum/>} />
             <Route path={'/me'} element={<Me user={user}/>} />
           </Routes>
         </BrowserRouter>
