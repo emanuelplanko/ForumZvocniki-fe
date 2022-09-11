@@ -13,13 +13,15 @@ const Card = ({cardData}:{cardData:any}) => {
                     </svg>
 
                     <div className="card-body">
-                        <h5>{cardData.title}</h5>
-                        <p className="card-text">{cardData.content}</p>
+                        <h5>{cardData.model_name}</h5>
+                        <p className="card-text">{cardData.company}</p>
                         <div className="d-flex justify-content-between align-items-center">
                             <div className="btn-group">
-                                <button type="button" className="btn btn-sm btn-outline-secondary">View
+                                <button type="button" className="btn btn-sm btn-outline-secondary"><a href='/current_loudspeaker' className="btn btn-primary my-2">View</a>
                                 </button>
                                 <button type="button" className="btn btn-sm btn-outline-secondary">Edit
+                                </button>
+                                <button type="button" className="btn btn-sm btn-outline-secondary">Delete
                                 </button>
                             </div>
                             <small className="text-muted">9 mins</small>
@@ -30,5 +32,7 @@ const Card = ({cardData}:{cardData:any}) => {
         </>
     )
 }
+
+
 
 export default Card;
