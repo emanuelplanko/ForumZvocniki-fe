@@ -16,10 +16,9 @@ const Nav = () => {
                             <div className="col-sm-4 offset-md-1 py-4">
                                 <h4 className="text-white">Povezave</h4>
                                 <ul className="list-unstyled">
+                                    <li><a href="/me" className="text-white">Profile</a></li>
                                     <li><a href="/login" className="text-white">Login</a></li>
                                     <li><a href="/register" className="text-white">Register</a></li>
-                                    <li><a href="/me" className="text-white">Profile</a></li>
-                                    <li><a href="/create" className="text-white">Ustvari post</a></li>
                                     <li><a href="/loudspeaker_forum" className="text-white">Zvočniki forum</a></li>
                                 </ul>
                             </div>
@@ -45,4 +44,5 @@ const Nav = () => {
     )
 }
 
+//<li><a href="/create" className="text-white">Ustvari post</a></li>
 export default Nav;

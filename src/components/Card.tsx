@@ -1,5 +1,48 @@
 import React from "react";
 
+
+interface CardProps{
+    cardData: any
+    hideControls?: boolean;
+    showMoreInfo?: boolean;
+}
+
+//{!hideControls && <img src={require('../img.jpg')} alt="Thumbnail" />}
+
+const Card = ({cardData, hideControls, showMoreInfo}: CardProps) => {
+    console.log(cardData);
+    return(
+        <>
+            <div className="col">
+                <div className="card shadow-sm">
+                    <div className="card-body">
+                        <h5>
+                            {showMoreInfo && <>Model name: </>}
+                            {cardData.model_name}
+                        </h5>
+                        <p className="card-text">{showMoreInfo && <>Company: </>}{cardData.company}</p>
+                        { showMoreInfo && <p>Opis: {cardData.description}</p>}
+                        { showMoreInfo && <p>Watt: {cardData.power}</p>}
+                        <div className="d-flex justify-content-between align-items-center">
+                            <div className="btn-group">
+                                {!hideControls && <a href={"/objava/"+cardData.id}><button type="button" className="btn btn-sm btn-outline-secondary">View</button></a>}
+                                 <button type="button" className="btn btn-sm btn-outline-secondary">Edit
+                                </button>
+                                <button type="button" className="btn btn-sm btn-outline-secondary">Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
+    )
+
+}
+
+//{ showExtraInfo && <p>Model Name: {cardData?.modelName}</p>}
+
+/*
 const Card = ({cardData}:{cardData:any}) => {
     return (
         <>
@@ -17,7 +60,7 @@ const Card = ({cardData}:{cardData:any}) => {
                         <p className="card-text">{cardData.company}</p>
                         <div className="d-flex justify-content-between align-items-center">
                             <div className="btn-group">
-                                <button type="button" className="btn btn-sm btn-outline-secondary"><a href='/current_loudspeaker' className="btn btn-primary my-2">View</a>
+                                <button type="button" className="btn btn-sm btn-outline-secondary"><a href='/loudspeaker' className="btn btn-primary my-2">View</a>
                                 </button>
                                 <button type="button" className="btn btn-sm btn-outline-secondary">Edit
                                 </button>
@@ -32,6 +75,7 @@ const Card = ({cardData}:{cardData:any}) => {
         </>
     )
 }
+*/
 
 
 

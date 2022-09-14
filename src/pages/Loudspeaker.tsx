@@ -1,8 +1,8 @@
 import React from "react";
 import {LoudspeakerDto} from "../classes/loudspeaker.dto";
-
 //na Me sprejmem podatke-user, ta tip user bo tudi objekt
 //Wrapperja tukaj ne rabimo, ker ga imamo drugje
+
 const Loudspeaker = ({loudspeaker}:{loudspeaker: LoudspeakerDto}) => {
     return (
         <>
@@ -19,3 +19,4 @@ const Loudspeaker = ({loudspeaker}:{loudspeaker: LoudspeakerDto}) => {
 }
 
 export default Loudspeaker;
+

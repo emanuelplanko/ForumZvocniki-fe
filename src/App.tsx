@@ -12,13 +12,15 @@ import Me from "./pages/Me";
 import LoudspeakerPost from "./pages/LoudspeakerPost";
 import SpeakerForum from "./pages/SpeakerForum";
 import LoudspeakerForum from "./pages/LoudspeakerForum";
-import Loudspeaker from "./pages/Loudspeaker";
-import {LoudspeakerDto} from "./classes/loudspeaker.dto";
+import Objava from "./pages/Objava";
+//import Loudspeaker from "./pages/Loudspeaker";
+//import {LoudspeakerDto} from "./classes/loudspeaker.dto";
 //objekt je tipa User
 //začetna vrednost je new UserDto, ki pa ima neke vrednosti
 function App() {
   const [user,setUser] = useState<UserDto>(new UserDto(0,'','',''));
-  const [loudspeaker, setLoudspeaker] = useState<LoudspeakerDto>(new LoudspeakerDto(0,'','','', '', '', '', ''));
+  //const [loudspeaker, setLoudspeaker] = useState<LoudspeakerDto>(new LoudspeakerDto(0,'','','', '', '', '', ''));
+
   const currentUser = async () => {
     try {
       const res = await axios.get('http://localhost:8080/users/profile',
@@ -36,10 +38,10 @@ function App() {
     }
   }
 
-/*
-  const currentLoudspeaker = async () => {
+
+ /* const currentLoudspeaker = async () => {
     try {
-      const res = await axios.get('http://localhost:8080/loudspeaker/id',
+      const res = await axios.get('http://localhost:8080/loudspeaker',
           {withCredentials: true});
 
       //pri setUser se sedaj pošljejo vsi podatki, ne samo user id
@@ -56,11 +58,7 @@ function App() {
 
   useEffect(() => {
     currentLoudspeaker();
-  },[]);
-
-*/
-
-
+  },[]);*/
 
 
 
@@ -83,7 +81,7 @@ function App() {
             <Route path={'/create_loudspeaker_posts'} element={<LoudspeakerPost/>} />
             <Route path={'/loudspeaker_forum'} element={<LoudspeakerForum/>} />
             <Route path={'/loudspeaker_posts'} element={<SpeakerForum/>} />
-            <Route path={'/current_loudspeaker'} element={<Loudspeaker loudspeaker={loudspeaker}/>} />
+            <Route path={'/objava/:id'} element={<Objava/>} />
             <Route path={'/me'} element={<Me user={user}/>} />
           </Routes>
         </BrowserRouter>
@@ -91,6 +89,6 @@ function App() {
   );
 }
 
-
+//<Route path={'/loudspeaker'} element={<Loudspeaker loudspeaker={loudspeaker}/>} />
 
 export default App;
