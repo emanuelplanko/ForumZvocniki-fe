@@ -13,6 +13,7 @@ import LoudspeakerPost from "./pages/LoudspeakerPost";
 import SpeakerForum from "./pages/SpeakerForum";
 import LoudspeakerForum from "./pages/LoudspeakerForum";
 import Objava from "./pages/Objava";
+import LoudspeakerUpdate from "./pages/LoudspeakerUpdate";
 //import Loudspeaker from "./pages/Loudspeaker";
 //import {LoudspeakerDto} from "./classes/loudspeaker.dto";
 //objekt je tipa User
@@ -82,6 +83,7 @@ function App() {
             <Route path={'/loudspeaker_forum'} element={<LoudspeakerForum/>} />
             <Route path={'/loudspeaker_posts'} element={<SpeakerForum/>} />
             <Route path={'/objava/:id'} element={<Objava/>} />
+            <Route path={'/loudspeaker_update/:id'} element={<LoudspeakerUpdate/>} />
             <Route path={'/me'} element={<Me user={user}/>} />
           </Routes>
         </BrowserRouter>

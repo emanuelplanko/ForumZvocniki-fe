@@ -1,60 +1,35 @@
 import React from "react";
-import axios from "axios";
 
-interface CardProps{
-    cardData: any
-    hideControls?: boolean;
-    showMoreInfo?: boolean;
+
+interface CommentProps{
+    commentData: any
 }
 
-
-
-
-//{!hideControls && <img src={require('../img.jpg')} alt="Thumbnail" />}
-
-const Card = ({cardData, hideControls, showMoreInfo}: CardProps) => {
-    //console.log(cardData);
-
-
-
-    const LoudspeakerDelete = async () => {
-
-        const res = await axios.delete(`http://localhost:8080/loudspeaker/${cardData.id}`,{withCredentials:true});
-
-        if (res.status == 201) {
-            window.location.reload()
-        }
-    }
+const Comment = ({commentData}: CommentProps) => {
+    console.log(commentData);
     return(
         <>
             <div className="col">
                 <div className="card shadow-sm">
                     <div className="card-body">
-                        {!hideControls && <img src="bf2.jpg" alt="Thumbnail" />}
-                        <h5>
-                            {showMoreInfo && <>Model name: </>}
-                            {cardData.model_name}
-                        </h5>
-                        <p className="card-text">{showMoreInfo && <>Company: </>}{cardData.company}</p>
-                        { showMoreInfo && <p>Opis: {cardData.description}</p>}
-                        { showMoreInfo && <p>Watt: {cardData.power}</p>}
-                        <div className="d-flex justify-content-between align-items-center">
-                            <div className="btn-group">
-                                {!hideControls && <a href={"/objava/"+cardData.id}><button type="button" className="btn btn-sm btn-outline-secondary">View</button></a>}
-
-                                {!hideControls && <a href={"/loudspeaker_update/"+cardData.id}><button type="button" className="btn btn-sm btn-outline-secondary">Edit</button></a>}
-
-                                {!hideControls && <button type="button" className="btn btn-sm btn-outline-secondary" onClick={LoudspeakerDelete}>Delete
-                                </button>}
-                            </div>
-                        </div>
+                        <p>{commentData.komentar}</p>
                     </div>
                 </div>
             </div>
         </>
     )
-
 }
+
+
+
+
+
+
+
+
+
+
+
 
 //{ showExtraInfo && <p>Model Name: {cardData?.modelName}</p>}
 
@@ -95,4 +70,4 @@ const Card = ({cardData}:{cardData:any}) => {
 
 
 
-export default Card;
+export default Comment;

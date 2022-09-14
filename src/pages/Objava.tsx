@@ -3,6 +3,7 @@ import {Params, useParams} from "react-router-dom";
 import axios from "axios";
 import Card from "../components/Card";
 import Loudspeaker from "./Loudspeaker";
+import Comment from "../components/Comment";
 
 const styleTextArea = {
     height:"100%"
@@ -29,11 +30,7 @@ const Objava = () => {
     }
 
 
-
-
     console.log(replies)
-
-
 
 
     useEffect(() => {
@@ -41,9 +38,10 @@ const Objava = () => {
     }, []);
 
     const loadKomentarji = async () => {
-        const res = await axios.get('http://localhost:8080/komentarji/' + id, {withCredentials: true});
+        const res = await axios.get(`http://localhost:8080/komentarji/loudspeaker/${id}/replies`, {withCredentials: true});
         if (res.status == 200){
             setReplies(res.data);
+            console.log(res.data);
         }
     }
 
@@ -55,21 +53,19 @@ const Objava = () => {
         e.preventDefault();
 
         const data = {
-            komentar
+            komentar: content,
+            "loudspeaker_id": id
         }
 
-        const res = await axios.post('http://localhost:8080/komentarji', data, { withCredentials: true });
+        const res = await axios.post('http://localhost:8080/komentarji/komentiraj', data, { withCredentials: true });
 
         if(res.status == 201){
-            setRedirect(true);
+            loadKomentarji();
         }
 
     }
 
-    if(redirect){
-        window.location.reload();
-        //return <Navigate to={'/thread/' + id}/>
-    }
+
 
     if(cardData) {
         return (
@@ -77,7 +73,7 @@ const Objava = () => {
                 <Card cardData={cardData} hideControls={true} showMoreInfo={true}/>
 
                 {replies.length > 0 && replies.map((komentar: any, i) => {
-                    return <Card cardData={komentar} key={i} hideControls={true}/>
+                    return <Comment commentData={komentar} key={i} />
                 })
                 }
 
@@ -88,7 +84,7 @@ const Objava = () => {
                     rows={8}
                     style={styleTextArea}
                     placeholder="Vnesi komentar"
-                    onChange={(e)=>setContent(e.target.value)}>
+                    onBlur={(e)=>setContent(e.target.value)}>
           </textarea>
 
                         <label htmlFor="floatingContent">Komentar</label>
