@@ -21,26 +21,9 @@ const LoudspeakerPost = () => {
     const[content,setContent] = useState('');
     const[redirect,setRedirect] = useState(false);
     //zadnji del
-    const[subjectSelected,setSubjectSelected] = useState(1);
     const {id} = useParams()
     //v to spremenljivko jih bomo shranili
     //[]-array, ker bo noter več podatkov, ne samo eden
-    const[subjects,setSubjects] = useState([]);
-
-    // v req bom dobil vse subjecte, treba jih je shranit v spremenljivko, ki bo dostopna vsem ostalim
-    const getSubjects = async () => {
-        const req = await axios.get('http://localhost:8080/subject',{withCredentials:true});
-        //nato pa nastavimo še setSubjects(req.data)
-        setSubjects(req.data);
-    }
-
-    //useEffect je podobno kot useState, vendar se izvede le ob določenih spremembah in ne ves čas
-    //v useEffectu bomo šli v bazo in bomo ven potegnali vse subjecte, ki jih imamo in jih bomo shranili v eno spremenljivko
-    //spodaj kličemo getSubjects
-    //useEffect se izvede prvič ko se stran naloži
-    useEffect(() => {
-        getSubjects();
-    }, []);
 
     const submit = async (e:SyntheticEvent) => {
         e.preventDefault();
@@ -52,8 +35,7 @@ const LoudspeakerPost = () => {
             frequency_range,
             power,
             sensitivity,
-            refractive_frequency,
-            "subject_id":subjectSelected
+            refractive_frequency
         }
 
         console.log(data);
@@ -135,31 +117,20 @@ const LoudspeakerPost = () => {
                            onChange={(e) => setRefractive_frequency(e.target.value)}/>
                     <label htmlFor="floatingSelect">Lomne frekvence(Hz)</label>
                 </div>
+                <button className="w-100 btn btn-lg btn-primary" type="submit">Shrani</button>
+            </form>
+        </>
+    )
+}
 
-                <div className="form-floating">
-                    <select className="form-control" id="floatingSelect"
-                            onChange={(e: any) => setSubjectSelected(e.target.value)}>
-                        {subjects.map((subject:any, i) => {
-                            return (<option value={subject.id} key={subject.id}>{subject.title}</option> );
-                        })}
-
-                    </select>
-                    <label htmlFor="floatingSelect">Izberi temo</label>
-                </div>
-                <div className="form-floating">
+/*<div className="form-floating">
                     <textarea className="form-control" id="floatingContent"
                               rows={8}
                               style={styleTextarea}
                               placeholder="Vnesi vsebino"
                               onChange={(e)=>setContent(e.target.value)}>
                     </textarea>
-                    <label htmlFor="floatingContent">Vsebina</label>
-                </div>
-
-                <button className="w-100 btn btn-lg btn-primary" type="submit">Shrani</button>
-            </form>
-        </>
-    )
-}
+    <label htmlFor="floatingContent">Vsebina</label>
+</div>*/
 
 export default LoudspeakerPost;

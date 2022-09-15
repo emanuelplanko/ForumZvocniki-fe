@@ -32,7 +32,7 @@ const Card = ({cardData, hideControls, showMoreInfo}: CardProps) => {
                             {cardData.model_name}
                         </h5>
                         <p className="card-text">{showMoreInfo && <>Opis: </>}{cardData.description}</p>
-                        { showMoreInfo && <p>POdjetje: {cardData.company}</p>}
+                        { showMoreInfo && <p>Podjetje: {cardData.company}</p>}
                         { showMoreInfo && <p>Frekvenčni obseg(Hz): {cardData.frequency_range}</p>}
                         { showMoreInfo && <p>Moč(Watt): {cardData.power}</p>}
                         { showMoreInfo && <p>Občutljivost(dB): {cardData.sensitivity}</p>}
