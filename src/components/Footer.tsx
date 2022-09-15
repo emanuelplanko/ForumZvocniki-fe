@@ -8,10 +8,9 @@ const Footer = () => {
                     <p className="float-end mb-1">
                         <a href="#">Back to top</a>
                     </p>
-                    <p className="mb-1">Album example is &copy; Bootstrap, but please download and customize it for
-                        yourself!</p>
-                    <p className="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a
-                        href="/docs/5.1/getting-started/introduction/">getting started guide</a>.</p>
+                    <p className="mb-1">Ljubitelji hifi zvočnikov</p>
+                    <p className="mb-0">Novi na naši spletni strani <a href="/">Pojdite na domačo stran</a> ali pa <a
+                        href='/create_loudspeaker_posts'>Ustvarite svojo lastno objavo o zvočnikih</a>.</p>
                 </div>
             </footer>
         </>

@@ -7,14 +7,10 @@ interface CardProps{
     showMoreInfo?: boolean;
 }
 
-
-
-
 //{!hideControls && <img src={require('../img.jpg')} alt="Thumbnail" />}
 
 const Card = ({cardData, hideControls, showMoreInfo}: CardProps) => {
     //console.log(cardData);
-
 
 
     const LoudspeakerDelete = async () => {
@@ -30,14 +26,17 @@ const Card = ({cardData, hideControls, showMoreInfo}: CardProps) => {
             <div className="col">
                 <div className="card shadow-sm">
                     <div className="card-body">
-                        {!hideControls && <img src="bf2.jpg" alt="Thumbnail" />}
+                        {!hideControls && <img src="loudspeakers1.png" alt="Thumbnail" />}
                         <h5>
-                            {showMoreInfo && <>Model name: </>}
+                            {showMoreInfo && <>Model: </>}
                             {cardData.model_name}
                         </h5>
-                        <p className="card-text">{showMoreInfo && <>Company: </>}{cardData.company}</p>
-                        { showMoreInfo && <p>Opis: {cardData.description}</p>}
-                        { showMoreInfo && <p>Watt: {cardData.power}</p>}
+                        <p className="card-text">{showMoreInfo && <>Opis: </>}{cardData.description}</p>
+                        { showMoreInfo && <p>POdjetje: {cardData.company}</p>}
+                        { showMoreInfo && <p>Frekvenčni obseg(Hz): {cardData.frequency_range}</p>}
+                        { showMoreInfo && <p>Moč(Watt): {cardData.power}</p>}
+                        { showMoreInfo && <p>Občutljivost(dB): {cardData.sensitivity}</p>}
+                        { showMoreInfo && <p>Lomne frekvence(Hz): {cardData.refractive_frequency}</p>}
                         <div className="d-flex justify-content-between align-items-center">
                             <div className="btn-group">
                                 {!hideControls && <a href={"/objava/"+cardData.id}><button type="button" className="btn btn-sm btn-outline-secondary">View</button></a>}
@@ -93,6 +92,20 @@ const Card = ({cardData}:{cardData:any}) => {
 }
 */
 
+
+/*
+ <h5>
+                            {showMoreInfo && <>Model: </>}
+                            {cardData.model_name}
+                        </h5>
+                        <p className="card-text">{showMoreInfo && <>Company: </>}{cardData.company}</p>
+                        { showMoreInfo && <p>Opis: {cardData.description}</p>}
+                        { showMoreInfo && <p>Podjetje: {cardData.power}</p>}
+                        { showMoreInfo && <p>Frekvenčni obseg(Hz): {cardData.power}</p>}
+                        { showMoreInfo && <p>Moč(Watt): {cardData.power}</p>}
+                        { showMoreInfo && <p>Občutljivost(dB): {cardData.power}</p>}
+                        { showMoreInfo && <p>Lomne frekvence: {cardData.power}</p>}
+ */
 
 
 export default Card;

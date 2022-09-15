@@ -46,7 +46,7 @@ const Login = () => {
     return (
         <>
             <h2>{error}</h2>
-            <h1>Login</h1>
+            <h1>Prijava</h1>
             <form onSubmit={submit} className="form-signin w-100 m-auto">
                 <div className="form-floating">
                     <input type="email" className="form-control" id="floatingInput"

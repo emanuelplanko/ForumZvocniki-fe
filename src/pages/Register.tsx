@@ -69,7 +69,7 @@ const Register = () => {
     return (
         <>
             <h2>{errorText}</h2>
-            <h1>Register</h1>
+            <h1>Registracija</h1>
             <form onSubmit={submit} className="form-signin w-100 m-auto">
                 <div className="form-floating">
                     <input type="text" className="form-control" id="floatingFirstName"

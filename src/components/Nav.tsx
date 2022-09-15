@@ -3,6 +3,7 @@ import React from "react";
                                   <li><a href="/loudspeaker" className="text-white">Objavi zvočnik</a></li>
                                   <li><a href="/active_posts" className="text-white">Preglej aktivne objave</a></li>*/
 const Nav = () => {
+
     return (
         <>
             <header>
@@ -10,8 +11,8 @@ const Nav = () => {
                     <div className="container">
                         <div className="row">
                             <div className="col-sm-8 col-md-7 py-4">
-                                <h4 className="text-white">Resnica</h4>
-                                <p className="text-muted">VSŠ je najboljša višja šola!</p>
+                                <h4 className="text-white">HIFI zvočniki</h4>
+                                <p className="text-muted">Zvočniki so zakon!</p>
                             </div>
                             <div className="col-sm-4 offset-md-1 py-4">
                                 <h4 className="text-white">Povezave</h4>

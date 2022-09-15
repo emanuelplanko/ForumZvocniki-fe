@@ -73,7 +73,7 @@ const LoudspeakerPost = () => {
     return (
         <>
             <h2>{error}</h2>
-            <h1>Create a post</h1>
+            <h1>Objavi zvočnik</h1>
             <form onSubmit={submit} className="form-signin w-100 m-auto">
                 <div className="form-floating">
                     <input type="text" className="form-control" id="floatingInput"
@@ -146,20 +146,20 @@ const LoudspeakerPost = () => {
                     </select>
                     <label htmlFor="floatingSelect">Izberi temo</label>
                 </div>
-                <div className="form-floating">
+                <button className="w-100 btn btn-lg btn-primary" type="submit">Shrani</button>
+            </form>
+        </>
+    )
+}
+
+/*<div className="form-floating">
                     <textarea className="form-control" id="floatingContent"
                               rows={8}
                               style={styleTextarea}
                               placeholder="Vnesi vsebino"
                               onChange={(e)=>setContent(e.target.value)}>
                     </textarea>
-                    <label htmlFor="floatingContent">Vsebina</label>
-                </div>
-
-                <button className="w-100 btn btn-lg btn-primary" type="submit">Shrani</button>
-            </form>
-        </>
-    )
-}
+    <label htmlFor="floatingContent">Vsebina</label>
+</div>*/
 
 export default LoudspeakerPost;
